@@ -4,7 +4,7 @@ import 'dotenv/config.js'
 import {
   WechatyBuilder,
 } from 'wechaty'
-import { ChatFlow, getBotOps, log, logForm, ChatFlowConfig, WechatyConfig } from '../src/chatflow.js'
+import { ChatFlow, getBotOps, log, logForm, ChatFlowConfig, WechatyConfig } from '@atorber/chatflow'
 // import { spawn } from 'child_process'
 
 // 监听进程退出事件，重新启动程序
@@ -18,14 +18,16 @@ import { ChatFlow, getBotOps, log, logForm, ChatFlowConfig, WechatyConfig } from
 
 const main = async () => {
 
-  if (!process.env.VIKA_SPACE_NAME || !process.env.VIKA_TOKEN) {
+  const VIKA_SPACE_NAME = process.env['VIKA_SPACE_NAME'] || ''
+  const VIKA_TOKEN = process.env['VIKA_TOKEN'] || ''
+  if (!VIKA_SPACE_NAME || !VIKA_TOKEN) {
     log.error('维格表配置不全，.env文件或环境变量中设置的token和spaceName之后重启')
     return
   }
 
   const config: { wechatyConfig: WechatyConfig } | undefined = await ChatFlowConfig.init({
-    spaceName: process.env.VIKA_SPACE_NAME || '',
-    token: process.env.VIKA_TOKEN || '',
+    spaceName: VIKA_SPACE_NAME,
+    token: VIKA_TOKEN,
   })
   // log.info('vikaBot配置信息：', JSON.stringify(config, undefined, 2))
 

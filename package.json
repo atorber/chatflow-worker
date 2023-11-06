@@ -1,6 +1,6 @@
 {
-  "name": "@atorber/chatflow",
-  "version": "2.0.40",
+  "name": "chatflow-worker",
+  "version": "0.0.1",
   "description": "ChatFlow-聊天机器人管理平台",
   "type": "module",
   "exports": {
@@ -22,7 +22,7 @@
     "dist": "npm-run-all clean build dist:commonjs",
     "dist:commonjs": "jq -n \"{ type: \\\"commonjs\\\" }\" > dist/cjs/package.json",
     "test-vika-orm": "cross-env NODE_OPTIONS=\"--no-warnings --loader=ts-node/esm\" node ./tests/vika-orm-test.ts",
-    "start": "cross-env NODE_OPTIONS=\"--no-warnings --loader=ts-node/esm\" node ./example/ding-dong-bot.ts",
+    "start": "cross-env NODE_OPTIONS=\"--no-warnings --loader=ts-node/esm\" node ./src/index.ts",
     "start:index": "cross-env NODE_OPTIONS=\"--no-warnings --loader=ts-node/esm\" node ./src/index.ts",
     "start:notls": "cross-env WECHATY_PUPPET_SERVICE_NO_TLS_INSECURE_CLIENT=true WECHATY_PUPPET_SERVICE_AUTHORITY=\"token-service-discovery-test.juzibot.com\" NODE_OPTIONS=\"--no-warnings --loader=ts-node/esm\" node ./example/ding-dong-bot.ts",
     "start:store": "cross-env NODE_OPTIONS=\"--no-warnings --loader=ts-node/esm\" node ./src/plugins/store-messages-locally.ts",
@@ -48,6 +48,7 @@
   },
   "homepage": "https://github.com/choogoo/chatflow#readme",
   "dependencies": {
+    "@atorber/chatflow": "^2.0.42",
     "@types/boxen": "^3.0.1",
     "@vikadata/vika": "^1.0.5",
     "@yuque/sdk": "^1.1.1",
@@ -76,6 +77,12 @@
     "qrcode-terminal": "^0.12.0",
     "request-promise": "^4.2.6",
     "uuid": "^9.0.0",
+    "wechaty": "^1.20.2",
+    "wechaty-puppet-engine": "^1.0.20",
+    "wechaty-puppet-padlocal": "^1.11.13",
+    "wechaty-puppet-service": "^1.19.8",
+    "wechaty-puppet-wechat": "^1.13.15",
+    "wechaty-puppet-wechat4u": "^1.14.3",
     "winston": "^3.11.0",
     "wxcrypt": "^1.4.3",
     "xlsx": "^0.18.5",
@@ -99,13 +106,7 @@
     "cross-env": "^7.0.3",
     "is-pr": "^2.0.0",
     "ts-node": "^10.9.1",
-    "typescript": "^4.9.3",
-    "wechaty": "^1.20.2",
-    "wechaty-puppet-engine": "^1.0.20",
-    "wechaty-puppet-padlocal": "^1.11.13",
-    "wechaty-puppet-service": "^1.19.8",
-    "wechaty-puppet-wechat": "^1.13.15",
-    "wechaty-puppet-wechat4u": "^1.14.3"
+    "typescript": "^4.9.3"
   },
   "peerDependencies": {
     "@swc/core": "1.3.78"
@@ -117,5 +118,10 @@
   ],
   "publishConfig": {
     "tag": "next"
+  },
+  "git": {
+    "scripts": {
+      "pre-push": "npx git-scripts-pre-push"
+    }
   }
 }
