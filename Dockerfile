@@ -1,11 +1,11 @@
 # 使用Alpine Linux作为基础镜像
-FROM node:16
+FROM node:18
 
-# 更新软件源并安装Chromium
-RUN apt-get update && apt-get install -y chromium-browser
-
-# 设置环境变量以避免Puppeteer下载自己的Chromium
-ENV PUPPETEER_SKIP_CHROMIUM_DOWNLOAD=true
+# 根据架构更新软件源并安装Chromium
+RUN if [ "$(uname -m)" = "aarch64" ]; then \
+      apt-get update && apt-get install -y chromium-browser && \
+      export PUPPETEER_SKIP_CHROMIUM_DOWNLOAD=true; \
+    fi
 
 # 设置工作目录
 WORKDIR /usr/src/app
