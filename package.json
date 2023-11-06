@@ -1,6 +1,6 @@
 {
   "name": "chatflow-worker",
-  "version": "0.0.2",
+  "version": "0.0.3",
   "description": "ChatFlow-worker是ChatFlow聊天机器人管理平台的运行时项目",
   "type": "module",
   "exports": {
@@ -31,15 +31,15 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/choogoo/chatflow-worker.git"
+    "url": "git+https://github.com/atorber/chatflow-worker.git"
   },
   "keywords": [],
   "author": "atorber <atorber@163.com>",
   "license": "Apache-2.0",
   "bugs": {
-    "url": "https://github.com/choogoo/chatflow-worker/issues"
+    "url": "https://github.com/atorber/chatflow-worker/issues"
   },
-  "homepage": "https://github.com/choogoo/chatflow-worker#readme",
+  "homepage": "https://github.com/atorber/chatflow-worker#readme",
   "dependencies": {
     "@atorber/chatflow": "^2.0.42",
     "wechaty": "^1.20.2",
@@ -72,5 +72,10 @@
   ],
   "publishConfig": {
     "tag": "next"
+  },
+  "git": {
+    "scripts": {
+      "pre-push": "npx git-scripts-pre-push"
+    }
   }
 }

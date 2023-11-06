@@ -3,7 +3,7 @@
 
 <img alt="GitHub stars badge" src="https://img.shields.io/github/stars/atorber/chatflow-worker"> <img alt="GitHub forks badge" src="https://img.shields.io/github/forks/atorber/chatflow-worker"> <img alt="GitHub license badge" src="https://img.shields.io/github/license/atorber/chatflow-worker">
 
-ChatFlow项目的运行时，源码查看[ChatFlow](https://github.com/atorber/chatflow)
+ChatFlow-Worker是ChatFlow项目的运行时，提供基于npm使用chatflow的示例代码及docker镜像，源码部署和运行可查看[ChatFlow](https://github.com/atorber/chatflow)
 ## 简介
 
 ChatFlow是一个聊天机器人管理系统，可以帮助你实现一些原生IM无法支持的功能。
@@ -18,7 +18,7 @@ ChatFlow是一个聊天机器人管理系统，可以帮助你实现一些原生
 
 ### 功能列表
 
-[详细功能查看](https://www.yuque.com/atorber/oegota/aialc7sbyb4ldmg4/edit)
+[详细功能查看](https://www.yuque.com/atorber/chatflow/aialc7sbyb4ldmg4/edit)
 
 |功能|描述|
 |--|--|
@@ -33,12 +33,12 @@ ChatFlow是一个聊天机器人管理系统，可以帮助你实现一些原生
 
 ## 快速开始
 
-[手把手教程](https://www.yuque.com/atorber/oegota/zm4ulnwnqp9whmd6)
+[手把手教程](https://www.yuque.com/atorber/chatflow/zm4ulnwnqp9whmd6)
 
 1.下载源码并安装依赖
 
 ```Shell
-git clone <https://github.com/choogoo/chatflow-worker.git>
+git clone <https://github.com/atorber/chatflow-worker.git>
 cd ./chatflow-worker
 npm install
 ```
@@ -56,10 +56,6 @@ VIKA_TOKEN="" #维格表token
 
 # 基础配置
 ADMINROOM_ADMINROOMTOPIC="瓦力是群主" # 管理群名称，需尽量保持名称复杂，避免重名群干扰
-
-# 智能问答配置
-WXOPENAI_TOKEN="" # 微信对话开放平台中获取
-WXOPENAI_ENCODINGAESKEY="" # 微信对话开放平台中获取
 ```
 
 4.启动程序
@@ -82,20 +78,21 @@ npm run start
 
 群ID在消息中查看(在群里发一条消息，然后控制台查看或在维格表中查找)
 
-详细操作参考 [手把手教程](https://www.yuque.com/atorber/oegota/zm4ulnwnqp9whmd6)
+详细操作参考 [手把手教程](https://www.yuque.com/atorber/chatflow/zm4ulnwnqp9whmd6)
 
 5.3 重启程序，在指定群测试问答
 
 ## 在Docker中部署运行
 
-注意，因为wechaty-puppet-xp必须依赖Windows微信客户端，所以不能使用Docker，但使用wechaty-puppet-padlocal、wechaty-puppet-service则可以用Doker来部署，
+注意，因为wechaty-puppet-xp必须依赖Windows微信客户端，所以不能使用Docker，但使用wechaty-puppet-padlocal、wechaty-puppet-service、wechaty-puppet-、wechaty-puppet-wechat4u则可以用Doker来部署，
 
-最新代码已经默认wechaty-puppet-wehcat为初始化puppet，mac、linux系统直接拉取镜像即可运行（mac M1需要自行打包镜像）
+默认wechaty-puppet-wehcat4u为初始化puppet，mac、linux系统直接拉取镜像即可运行（mac M1需要自行打包镜像）,切换其他puppet在维格表的环境变量中修改配置并重启bot即可。
 
 ### Wechaty-Puppet支持
 
 |puppet名称|支持平台 |需要token |付费| 备注|
 |--|--|--|--|--|
+|wechaty-puppet-wechat4u| Windows、Linux、macOS |否| 否 |网页版wechat，无法获取真实的微信ID和群ID，重启之后ID可能会变|
 |wechaty-puppet-wechat| Windows、Linux、macOS |否| 否 |网页版wechat，无法获取真实的微信ID和群ID，重启之后ID可能会变|
 |wechaty-puppet-xp|Windows| 否| 否 |仅支持windows|
 |wechaty-puppet-padlocal👍| Windows、Linux、macOS| 是 |是 |
@@ -111,7 +108,7 @@ npm run start
 docker run -d --restart=always 
 --env VIKA_TOKEN="维格表token" 
 --env VIKA_SPACE_NAME="维格表空间名称" 
---env ADMINROOM_ADMINROOMTOPIC="超哥是群主" 
+--env ADMINROOM_ADMINROOMTOPIC="瓦力是群主" 
 atorber/chatflow:latest
 ```
 
@@ -123,27 +120,19 @@ atorber/chatflow:latest
 
 1. 加入QQ群 583830241 在线交流，添加 ledongmao 微信
 
-2. 到 [项目语雀知识库](https://www.yuque.com/atorber/oegota/ibnui5v8mob11d70) 查看常用问题
+2. 到 [项目语雀知识库](https://www.yuque.com/atorber/chatflow/ibnui5v8mob11d70) 查看常用问题
 
-3. 提交一个issues <https://github.com/choogoo/wechat-openai-qa-bot/issues>
+3. 如何有任何疑问或建议，提交一个issues <https://github.com/atorber/chatflow/issues>
 
 ## 效果展示
 
-去 [效果展示图文](https://www.yuque.com/atorber/oegota/tbsokg3pqu5vk50y) 查看
+去 [效果展示图文](https://www.yuque.com/atorber/chatflow/tbsokg3pqu5vk50y) 查看
 
 ## 二次开发
 
 此项目只是提供了一个简单的使用微信机器人和智能对话平台实现的QA系统。如果有兴趣，可以继续学习微信对话开放平台的高级技能，实现诸如连续问答等高级功能，欢迎贡献你的创意。
 
-此外要说明的是，项目中使用puppet-xp完全是出于免费的考虑，如果不考虑这一点的话，wechaty还有更好用的puppet，对于有能力的开发者来说可以根据实际情况替换。
-
-### TODO LIST
-
-- 消息群发，通知消息同时发布到多个群
-
-- 消息转发，按设定规则转发消息
-
-- 使用VIKA托管配置文件
+项目源码移步 [ChatFlow](https://github.com/atorber/chatflow)
 
 ## Star History
 
