@@ -1,19 +1,20 @@
 <!-- markdownlint-disable MD013 MD033 -->
-# ChatFlow
+# ChatFlow-Worker
 
-<img alt="GitHub stars badge" src="https://img.shields.io/github/stars/atorber/chatflow"> <img alt="GitHub forks badge" src="https://img.shields.io/github/forks/atorber/chatflow"> <img alt="GitHub license badge" src="https://img.shields.io/github/license/atorber/chatflow">
+<img alt="GitHub stars badge" src="https://img.shields.io/github/stars/atorber/chatflow-worker"> <img alt="GitHub forks badge" src="https://img.shields.io/github/forks/atorber/chatflow-worker"> <img alt="GitHub license badge" src="https://img.shields.io/github/license/atorber/chatflow-worker">
 
-wechat-qa-bot 更名为ChatFlow，[访问项目语雀文档了解更多信息](https://www.yuque.com/atorber/chatflow)
-
-> 最新版本2.0.25是相对稳定的版本，数据表与之前版本不兼容，在运行时建议配置全新的维格表空间或删除原空间全部表
-
+ChatFlow项目的运行时，源码查看[ChatFlow](https://github.com/atorber/chatflow)
 ## 简介
 
-本项目使用wechat机器人快速实现一个免费的QA问答系统，如果你是一个社群工作者、拼团团长、业务群运营经理，使用这个项目可以帮助你解决一些重复性问答。
+ChatFlow是一个聊天机器人管理系统，可以帮助你实现一些原生IM无法支持的功能。
 
-同时，本项目也具备微信消息收集、定时通知等常用场景功能。
+如果你是一个社群工作者、拼团团长、业务群运营经理，使用这个项目可以帮助你解决一些实际工作中的问题。
 
-已适配网页版微信，linux、mac、Windows均可运行。
+此外还提供定时任务、消息存档等功能。
+
+基于开源项目Wechaty实现，目前主要验证了对微信的支持，理论上支持微信、钉钉、飞书、whatsapp等。
+
+已适配网页版微信，linux、mac、Windows均可免费运行。
 
 ### 功能列表
 
@@ -37,8 +38,8 @@ wechat-qa-bot 更名为ChatFlow，[访问项目语雀文档了解更多信息](h
 1.下载源码并安装依赖
 
 ```Shell
-git clone <https://github.com/choogoo/chatflow.git>
-cd ./chatflow
+git clone <https://github.com/choogoo/chatflow-worker.git>
+cd ./chatflow-worker
 npm install
 ```
 
@@ -60,8 +61,6 @@ ADMINROOM_ADMINROOMTOPIC="瓦力是群主" # 管理群名称，需尽量保持�
 WXOPENAI_TOKEN="" # 微信对话开放平台中获取
 WXOPENAI_ENCODINGAESKEY="" # 微信对话开放平台中获取
 ```
-
-> 只有加入到roomWhiteList里的群才会开启只能问答机器人
 
 4.启动程序
 
@@ -146,36 +145,6 @@ atorber/chatflow:latest
 
 - 使用VIKA托管配置文件
 
-### 相关依赖
-
-项目用到了一些免费且好用的开源项目和平台
-
-> 如果你是团长可忽略此段内容，开发者可进一步了解
-
-- [Wechaty](https://wechaty.js.org/)
-
-  只需几行代码，您就可以拥有一个功能齐全的聊天机器人
-
-- [wechaty-puppet-xp](https://github.com/wechaty/puppet-xp)
-
-  可能是目前最好用的免费wechat机器人
-
-- [wechaty-puppet-wechat](https://github.com/wechaty/puppet-wechat)
-  
-  目前最简单的免费wechat机器人
-
-- [微信对话开放平台](https://openai.weixin.qq.com/)
-
-  5分钟零基础免费一键搭建智能对话机器人，并应用于微信公众号、小程序、企业网站、APP等
-
-- [vika维格表](https://spcp52tvpjhxm.com.vika.cn/?inviteCode=55152973)
-
-  将过去复杂的IT数据库技术，做得像表格一样简单(如果要注册，通过这个链接，或者使用邀请码 55152973 )
-
-- [vue-im](https://github.com/polk6/vue-im)
-
-  由@polk6开源的客服web项目，实现客服后台回复咨询消息
-
 ## Star History
 
-[![Star History Chart](https://api.star-history.com/svg?repos=atorber/chatflow&type=Date)](https://star-history.com/#atorber/chatflow&Date)
+[![Star History Chart](https://api.star-history.com/svg?repos=atorber/chatflow-worker&type=Date)](https://star-history.com/#atorber/chatflow-worker&Date)

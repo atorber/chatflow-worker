@@ -18,8 +18,8 @@ import { ChatFlow, getBotOps, log, logForm, ChatFlowConfig, WechatyConfig } from
 
 const main = async () => {
 
-  const VIKA_SPACE_NAME = process.env['VIKA_SPACE_NAME'] || ''
-  const VIKA_TOKEN = process.env['VIKA_TOKEN'] || ''
+  const VIKA_SPACE_NAME = process.env['VIKA_SPACE_NAME']
+  const VIKA_TOKEN = process.env['VIKA_TOKEN']
   if (!VIKA_SPACE_NAME || !VIKA_TOKEN) {
     log.error('维格表配置不全，.env文件或环境变量中设置的token和spaceName之后重启')
     return
