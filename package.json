@@ -1,6 +1,6 @@
 {
   "name": "chatflow-worker",
-  "version": "0.0.1",
+  "version": "0.0.2",
   "description": "ChatFlow-聊天机器人管理平台",
   "type": "module",
   "exports": {
