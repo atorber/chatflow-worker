@@ -1,6 +1,6 @@
 {
   "name": "chatflow-worker",
-  "version": "0.0.3",
+  "version": "0.0.4",
   "description": "ChatFlow-worker是ChatFlow聊天机器人管理平台的运行时项目",
   "type": "module",
   "exports": {
@@ -22,7 +22,6 @@
     "dist:commonjs": "jq -n \"{ type: \\\"commonjs\\\" }\" > dist/cjs/package.json",
     "rm-temp": "rm -r temp; mkdir temp",
     "rm-cache": "rm -r cache; mkdir cache",
-    "test": "npm run lint",
     "lint": "npm run lint:es && npm run lint:ts && npm run lint:md",
     "lint:md": "markdownlint README.md",
     "lint:ts": "tsc --isolatedModules --noEmit",
@@ -72,10 +71,5 @@
   ],
   "publishConfig": {
     "tag": "next"
-  },
-  "git": {
-    "scripts": {
-      "pre-push": "npx git-scripts-pre-push"
-    }
   }
 }
