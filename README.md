@@ -88,6 +88,26 @@ npm run start
 
 默认wechaty-puppet-wehcat4u为初始化puppet，mac、linux系统直接拉取镜像即可运行（mac M1需要自行打包镜像）,切换其他puppet在维格表的环境变量中修改配置并重启bot即可。
 
+### 拉取和运行
+
+- x86架构（云服务器、办公电脑等）
+
+```Shell
+docker run -d --restart=always --env VIKA_TOKEN="维格表token" --env VIKA_SPACE_NAME="维格表空间名称" --env ADMINROOM_ADMINROOMTOPIC="管理群名称" atorber/chatflow:0.0.7-amd64
+```
+
+- arm架构（Mac M1 +）
+
+```Shell
+docker run -d --restart=always --env VIKA_TOKEN="维格表token" --env VIKA_SPACE_NAME="维格表空间名称" --env ADMINROOM_ADMINROOMTOPIC="管理群名称" atorber/chatflow:0.0.7-arm64
+```
+
+- armv7（树莓派）
+
+```Shell
+docker run -d --restart=always --env VIKA_TOKEN="维格表token" --env VIKA_SPACE_NAME="维格表空间名称" --env ADMINROOM_ADMINROOMTOPIC="管理群名称" atorber/chatflow:0.0.7-armv7
+```
+
 ### Wechaty-Puppet支持
 
 |puppet名称|支持平台 |需要token |付费| 备注|
@@ -99,18 +119,6 @@ npm run start
 |wechaty-puppet-service👍| Windows、Linux、macOS| 是 |是 |企业微信|
 
 > 特别注意，Wechaty-Puppet是wechaty的概念，本项目不涉及机器人开发，只是使用wechaty项目进行业务功能实现，什么是[Wechaty](https://wechaty.js.org/)请点击链接进行了解学习
-
-### 拉取和运行
-
-- 最新版本
-
-```Shell
-docker run -d --restart=always 
---env VIKA_TOKEN="维格表token" 
---env VIKA_SPACE_NAME="维格表空间名称" 
---env ADMINROOM_ADMINROOMTOPIC="瓦力是群主" 
-atorber/chatflow:latest
-```
 
 ## 视频演示及使用教程
 

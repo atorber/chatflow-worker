@@ -1,6 +1,6 @@
 {
   "name": "chatflow-worker",
-  "version": "0.0.7",
+  "version": "0.0.8",
   "description": "ChatFlow-worker是ChatFlow聊天机器人管理平台的运行时项目",
   "type": "module",
   "exports": {
