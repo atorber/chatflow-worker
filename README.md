@@ -93,19 +93,19 @@ npm run start
 - x86架构（云服务器、办公电脑等）
 
 ```Shell
-docker run -d --restart=always --env VIKA_TOKEN="维格表token" --env VIKA_SPACE_NAME="维格表空间名称" --env ADMINROOM_ADMINROOMTOPIC="管理群名称" atorber/chatflow:0.0.7-amd64
+docker run -d --restart=always --env VIKA_TOKEN="维格表token" --env VIKA_SPACE_NAME="维格表空间名称" --env ADMINROOM_ADMINROOMTOPIC="管理群名称" atorber/chatflow-worker:0.0.7-amd64
 ```
 
 - arm架构（Mac M1 +）
 
 ```Shell
-docker run -d --restart=always --env VIKA_TOKEN="维格表token" --env VIKA_SPACE_NAME="维格表空间名称" --env ADMINROOM_ADMINROOMTOPIC="管理群名称" atorber/chatflow:0.0.7-arm64
+docker run -d --restart=always --env VIKA_TOKEN="维格表token" --env VIKA_SPACE_NAME="维格表空间名称" --env ADMINROOM_ADMINROOMTOPIC="管理群名称" atorber/chatflow-worker:0.0.7-arm64
 ```
 
 - armv7（树莓派）
 
 ```Shell
-docker run -d --restart=always --env VIKA_TOKEN="维格表token" --env VIKA_SPACE_NAME="维格表空间名称" --env ADMINROOM_ADMINROOMTOPIC="管理群名称" atorber/chatflow:0.0.7-armv7
+docker run -d --restart=always --env VIKA_TOKEN="维格表token" --env VIKA_SPACE_NAME="维格表空间名称" --env ADMINROOM_ADMINROOMTOPIC="管理群名称" atorber/chatflow-worker:0.0.7-armv7
 ```
 
 ### Wechaty-Puppet支持
