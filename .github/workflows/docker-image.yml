@@ -51,6 +51,6 @@ jobs:  # workflow中的job
           context: .
           file: ./Dockerfile
           platforms: ${{ matrix.platform }}
-          tags: user/myapp:${{ github.ref_name }}-${{ matrix.tag_suffix }}
+          tags: atorber/chatflow-worker:${{ github.ref_name }}-${{ matrix.tag_suffix }}
           push: true
           labels: ${{ steps.meta.outputs.labels }}
