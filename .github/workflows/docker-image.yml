@@ -15,7 +15,13 @@ jobs:  # workflow中的job
     runs-on: ubuntu-latest   # job运行的基础环境
     strategy:
       matrix:
-        platform: ['linux/amd64', 'linux/arm/v7'] # 'linux/arm64'
+        include:
+          - platform: linux/amd64
+            tag_suffix: amd64
+          - platform: linux/arm/v7
+            tag_suffix: armv7
+          - platform: linux/arm64
+            tag_suffix: arm64
 
     steps:  # 一个job由一个或多个step组成
       - name: Check out the repo
@@ -45,6 +51,6 @@ jobs:  # workflow中的job
           context: .
           file: ./Dockerfile
           platforms: ${{ matrix.platform }}
-          tags: ${{ steps.meta.outputs.tags }}
+          tags: user/myapp:${{ github.ref_name }}-${{ matrix.tag_suffix }}
           push: true
           labels: ${{ steps.meta.outputs.labels }}
