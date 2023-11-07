@@ -6,7 +6,7 @@ on:   # 配置触发workflow的事件
     branches:  # 添加这一行来指定触发分支
       - 'main'   # 两个星号代表任意分支
     tags:       # tag更新时触发此workflow
-      - '*'
+      - 'v*'
 
 jobs:  # workflow中的job
 
@@ -15,7 +15,7 @@ jobs:  # workflow中的job
     runs-on: ubuntu-latest   # job运行的基础环境
     strategy:
       matrix:
-        platform: ['linux/amd64'] # 'linux/arm64'
+        platform: ['linux/amd64', 'linux/arm/v7'] # 'linux/arm64'
 
     steps:  # 一个job由一个或多个step组成
       - name: Check out the repo
