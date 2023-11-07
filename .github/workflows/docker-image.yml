@@ -26,7 +26,14 @@ jobs:  # workflow中的job
     steps:  # 一个job由一个或多个step组成
       - name: Check out the repo
         uses: actions/checkout@v2   # 官方的action，获取代码
-  
+
+      - name: Install jq
+        run: sudo apt-get install jq
+
+      - name: Extract package version
+        id: package_version
+        run: echo "::set-output name=VERSION::$(jq -r '.version' package.json)"
+
       - name: Set up QEMU
         uses: docker/setup-qemu-action@v1
   
@@ -51,6 +58,6 @@ jobs:  # workflow中的job
           context: .
           file: ./Dockerfile
           platforms: ${{ matrix.platform }}
-          tags: atorber/chatflow-worker:${{ github.ref_name }}-${{ matrix.tag_suffix }}
+          tags: atorber/chatflow-worker:${{ steps.package_version.outputs.VERSION }}-${{ matrix.tag_suffix }}
           push: true
           labels: ${{ steps.meta.outputs.labels }}
