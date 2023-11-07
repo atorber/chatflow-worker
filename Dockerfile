@@ -13,7 +13,7 @@ ENV PUPPETEER_SKIP_CHROMIUM_DOWNLOAD=${TARGETARCH:-"amd64"}
 
 # 仅在 ARM 架构上安装 Chromium
 RUN if [ "$TARGETARCH" = "arm64" ]; then \
-      apt-get update && apt-get install -y chromium-browser; \
+      apt-get update && apt-get install -y chromium; \
     fi
     
 # 安装依赖
