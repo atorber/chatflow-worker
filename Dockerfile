@@ -17,9 +17,7 @@ RUN if [ "$TARGETARCH" = "arm64" ]; then \
     fi
     
 # 安装依赖
-RUN npm install && \
-    npm install @swc/core@1.3.78 && \
-    npm install @atorber/chatflow@latest
+RUN npm install
 
 # 复制所有文件到工作目录
 COPY . .
