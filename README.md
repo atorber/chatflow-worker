@@ -4,6 +4,7 @@
 <img alt="GitHub stars badge" src="https://img.shields.io/github/stars/atorber/chatflow-worker"> <img alt="GitHub forks badge" src="https://img.shields.io/github/forks/atorber/chatflow-worker"> <img alt="GitHub license badge" src="https://img.shields.io/github/license/atorber/chatflow-worker">
 
 ChatFlow-Worker是ChatFlow项目的运行时，提供基于npm使用chatflow的示例代码及docker镜像，源码部署和运行可查看[ChatFlow](https://github.com/atorber/chatflow)
+
 ## 简介
 
 ChatFlow是一个聊天机器人管理系统，可以帮助你实现一些原生IM无法支持的功能。
@@ -33,7 +34,7 @@ ChatFlow是一个聊天机器人管理系统，可以帮助你实现一些原生
 
 ## 快速开始
 
-[手把手教程](https://www.yuque.com/atorber/chatflow/zm4ulnwnqp9whmd6)
+[访问项目语雀文档查看完整使用说明](https://www.yuque.com/atorber/chatflow)
 
 1.下载源码并安装依赖
 
@@ -50,12 +51,18 @@ npm install
 > 快速开始仅需要修改VIKA_TOKEN、VIKA_SPACE_NAME、ADMINROOM_ADMINROOMTOPIC配置项,其他配置项暂时无需修改，使用微信对话开放平台时配置WXOPENAI_TOKEN、WXOPENAI_ENCODINGAESKEY
 
 ```.env
-# 维格表配置
-VIKA_SPACE_NAME="" # 维格表空间名称，注意是名称而不是ID
-VIKA_TOKEN="" #维格表token
+# Wechaty
+WECHATY_PUPPET="wechaty-puppet-wechat4u" # 可选值：wechaty-puppet-wechat4u、wechaty-puppet-wechat、wechaty-puppet-xp、wechaty-puppet-engine、wechaty-puppet-padlocal、wechaty-puppet-service
+WECHATY_TOKEN="" # 使用wechaty-puppet-padlocal、wechaty-puppet-service时需配置此token
 
 # 基础配置
-ADMINROOM_ADMINROOMTOPIC="瓦力是群主" # 管理群名称，需尽量保持名称复杂，避免重名群干扰
+ADMINROOM_ADMINROOMTOPIC="替换为你的管理员群名称" # 管理群名称，需尽量保持名称复杂，避免重名群干扰
+
+# 维格表配置
+VIKA_SPACE_ID="替换为你的维格表空间ID" # 维格表空间ID或飞书多维表格的appToken
+VIKA_TOKEN="替换为你的维格表token" # 维格表token或飞书多维表格信息拼接（使用'/'拼接三个参数：appId/appSecret/appToken）
+# ENDPOINT="http://127.0.0.1:9503" # 后端管理服务API地址，默认http://127.0.0.1:9503，需要自行部署chatflow-admin项目
+ENDPOINT="https://chat.vlist.cc" # 官方体验环境地址，可以直接使用，不需要启动chatflow-admin，但服务器不定时重启，不保证稳定
 ```
 
 4.启动程序
